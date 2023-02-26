@@ -1,0 +1,73 @@
+<head>
+    <title>日麻胡牌規則</title>
+</head>
+
+<body onload="init()">
+    <label for="domTextElement">牌: </label>
+    <input type="text" class="input" id="domTextElement">
+
+    <div id="datas"></div>
+
+
+
+
+</body>
+<style type="text/css">
+.button {
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+input{
+    outline-style: none ;
+    border: 1px solid #ccc; 
+    border-radius: 3px;
+    padding: 13px 14px;
+    width: 620px;
+    font-size: 14px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+}
+label{
+    font-size: 20px;
+    font-weight: 700;
+    font-family: "Microsoft soft";
+}
+</style>
+
+<script>
+    // 初始化
+    function init() {
+        setMahjong(["m1","m2","m3","m4","m5","m6","p1","p2","p3","p4","p5","p6","z1","z1"])
+    }
+
+    // 判斷牌型
+    function mahjongcalc() {
+        let d = document.getElementById('domTextElement')
+        if(d.value==null || d.value =="") {
+            return
+        }
+        let j = { text: d.value }
+    }
+
+    // 設置麻將圖片
+    function setMahjong(datas) {
+        if (datas == null) {
+            return
+        }
+
+        let d = document.getElementById('datas')
+        d.innerHTML = ""
+
+        for (let i = 0; i < datas.length; i++) {
+            let a = document.createElement('img')
+            a.src = window.location + 'img/' + datas[i] + '.gif'
+            d.appendChild(a)
+        }
+    }
+</script>
